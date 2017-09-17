@@ -27,6 +27,19 @@ struct TemplateName<Type_t<arg...> >
     using name_t = meta::Serialize<meta::Content<char, '<'>, meta::FormatArgument<meta::GetName<NameType<arg> >...>, meta::Content<char, '>'> >;
 };
 
+#if __cplusplus >= 201402L
+template<typename Type_t, unsigned N>
+struct NameType<Type_t [N]>
+{
+    using last = typename NameType<Type_t>::name_t;
+    using name_t = meta::Serialize<last, meta::Content<char, '['> , meta::NumberToStr<N>, meta::Content<char, ']'> >;
+};
+#else
+template<typename Type_t, unsigned N>
+struct NameType<Type_t [N]> : NameType<Type_t *>
+{};
+#endif
+
 template<typename Type_t>
 struct NameType<Type_t *>
 {

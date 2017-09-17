@@ -115,6 +115,7 @@ typename _MakeType<T, TypeInfoInstance>::builtinMakeType make_type() noexcept;
         static TypeInfo_t make_type() noexcept; \
     }
 
+#if __cplusplus >= 201402L
 #define B_DECLARE_TYPE_CPP(T)  \
     TypeInfo_t TypeInfoInstance<T>::make_type() noexcept \
     { \
@@ -141,6 +142,33 @@ typename _MakeType<T, TypeInfoInstance>::builtinMakeType make_type() noexcept;
     { \
         return trait_t::transtypesExt(); \
     }
-
+#else
+#define B_DECLARE_TYPE_CPP(T)  \
+    TypeInfo_t TypeInfoInstance<T>::make_type() noexcept \
+    { \
+        static TypeInfo_t typeInfo(v2::load_type(std::unique_ptr<vTypeInfo>(new TypeInfoInstance<T>))); \
+        return typeInfo; \
+    } \
+  \
+    std::string TypeInfoInstance<T>::name() const noexcept \
+    { \
+        return trait_t::name(); \
+    } \
+    \
+    std::pair<const TypeInfo_t *, const TypeInfo_t *> TypeInfoInstance<T>::transtypes() const noexcept \
+    { \
+        return trait_t::transtypes();\
+    } \
+    \
+    std::pair<const vFunctionInfo *, const vFunctionInfo *> TypeInfoInstance<T>::operators() const noexcept \
+    { \
+        return trait_t::operators();\
+    } \
+    \
+    std::pair<const TypeInfo_t *, const TypeInfo_t *> TypeInfoInstance<T>::transtypesExt() const noexcept \
+    { \
+        return trait_t::transtypesExt(); \
+    }
+#endif
 
 #endif // TYPEINFOINSTANCE_H
