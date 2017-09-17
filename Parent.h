@@ -11,6 +11,8 @@ class parent_check
     static_assert(b_and(std::is_base_of<T, D>()...), "class D not derived by T");
 };
 
+// class who generate an array of ClassInfo_t who tell parent class of T
+
 template<typename T>
 struct Parent : array_of_classinfo<>
 {};

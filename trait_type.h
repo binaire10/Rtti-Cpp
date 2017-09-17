@@ -46,6 +46,9 @@ namespace meta
     template<typename Type_t>
     struct trait_Member
     {
+
+        // helper to get the object type of member
+
         template<typename T, typename O>
         static T valueType(T (O::*));
         template<typename T, typename O>
@@ -69,6 +72,8 @@ namespace meta
     template<typename first_type, typename second_type = first_type>
     struct exist_operator
     {
+        // function to determine existing operator
+
         template<typename T, typename = decltype(*static_cast<T*>(nullptr) + *static_cast<second_type*>(nullptr))>
         static std::true_type hasSumOperator(T *);
         template<typename T>
@@ -170,6 +175,9 @@ namespace meta
     struct trait_function
     {
     private:
+
+        // tool to get return type and argument without make special class
+
         template<typename T, typename O, typename... arg>
         static TypeContenor<arg...> argTypes(T (*)(arg...));
         template<typename T, typename O, typename... arg>
