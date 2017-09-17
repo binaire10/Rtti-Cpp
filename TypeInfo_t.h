@@ -13,6 +13,7 @@ class TypeInfo_t
 {
     friend ClassInfo_t import(const TypeInfo_t &);
     friend class ClassInfo_t;
+    friend struct std::hash<TypeInfo_t>;
 public:
     TypeInfo_t() noexcept;
     TypeInfo_t(const vTypeInfo *) noexcept;
