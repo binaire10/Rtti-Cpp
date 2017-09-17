@@ -4,16 +4,15 @@
 
 #include "TypeInfo.h"
 #include "Parent.h"
+#include "FunctionMember.h"
 
-template<typename>
-struct FunctionMember;
+// it's a proxy class to outside information
+
 template<typename T>
 struct ClassInfo : TypeInfo<T>
 {
     using parent_t = Parent<T>;
     using functionMeber_t = FunctionMember<T>;
 };
-
-#include "FunctionMember.h"
 
 #endif // CLASSINFO_H

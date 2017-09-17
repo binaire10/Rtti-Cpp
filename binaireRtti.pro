@@ -11,6 +11,18 @@ unix: LIBS += -static-libgcc -static-libstdc++
 include($$PWD/depend/MetaString/include.pri)
 include($$PWD/depend/TraitsTemplate/include.pri)
 
+HEADERS_PP += \
+    ClassInfoInstance.tpp \
+    trait_ClassInfoInstance.inl \
+    TypeInfoInstance.tpp \
+    trait_TypeInfoInstance.inl \
+    trait_FunctionMemberInfoInstance.inl \
+    FunctionMemberInfoInstance.tpp \
+    arrayOf.tpp \
+    hash_ClassInfo_t.inl \
+    hash_pair.tpp \
+    hash_TypeInfo_t.inl
+
 HEADERS += \
     vTypeInfo.h \
     vFunctionInfo.h \
@@ -46,19 +58,11 @@ HEADERS += \
     ElementName.h \
     NameType.h
 
+HEADERS += $$HEADERS_PP
+
 SOURCES += \
     main.cpp \
     vTypeLogger.cpp \
     TypeInfo_t.cpp \
     ClassInfo_t.cpp \
-    FunctionMemberInfo_t.cpp \
-    ClassInfoInstance.tpp \
-    trait_ClassInfoInstance.inl \
-    TypeInfoInstance.tpp \
-    trait_TypeInfoInstance.inl \
-    trait_FunctionMemberInfoInstance.inl \
-    FunctionMemberInfoInstance.tpp \
-    arrayOf.tpp \
-    hash_ClassInfo_t.inl \
-    hash_pair.tpp \
-    hash_TypeInfo_t.inl
+    FunctionMemberInfo_t.cpp

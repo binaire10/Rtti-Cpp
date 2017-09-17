@@ -9,8 +9,7 @@
 #include "trait_type.h"
 #include "ElementName.h"
 #include "arrayOf.h"
-
-class TypeInfo_t;
+#include "TypeInfo_t.h"
 
 template<typename FunctionMemberPtr_t, FunctionMemberPtr_t function>
 struct trait_FunctionMemberInfoInstance

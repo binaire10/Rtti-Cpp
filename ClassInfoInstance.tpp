@@ -24,37 +24,37 @@ constexpr ClassInfoInstance<T>::ClassInfoInstance() noexcept
 template<typename T>
 std::string ClassInfoInstance<T>::name() const noexcept
 {
-    return trait_ClassInfoInstance<T>::name();
+    return trait_t::name();
 }
 
 template<typename T>
 std::pair<const TypeInfo_t *, const TypeInfo_t *> ClassInfoInstance<T>::transtypes() const noexcept
 {
-    return trait_ClassInfoInstance<T>::transtypes();
+    return trait_t::transtypes();
 }
 
 template<typename T>
 std::pair<const vFunctionInfo *, const vFunctionInfo *> ClassInfoInstance<T>::operators() const noexcept
 {
-    return trait_ClassInfoInstance<T>::operators();
+    return trait_t::operators();
 }
 
 template<typename T>
 std::pair<const FunctionMemberInfo_t *, const FunctionMemberInfo_t *> ClassInfoInstance<T>::members() const noexcept
 {
-    return trait_ClassInfoInstance<T>::members();
+    return trait_t::members();
 }
 
 template<typename T>
 std::pair<const ClassInfo_t *, const ClassInfo_t *> ClassInfoInstance<T>::parents() const noexcept
 {
-    return trait_ClassInfoInstance<T>::parents();
+    return trait_t::parents();
 }
 
 template<typename T>
 std::pair<const TypeInfo_t *, const TypeInfo_t *> ClassInfoInstance<T>::transtypesExt() const noexcept
 {
-    return trait_ClassInfoInstance<T>::transtypesExt();
+    return trait_t::transtypesExt();
 }
 
 #include "trait_ClassInfoInstance.inl"

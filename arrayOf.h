@@ -9,17 +9,23 @@
 #include "ClassInfo_t.h"
 #include "FunctionMemberInfo_t.h"
 
+// tool to generate an array of TypeInfo_t
+
 template<typename... T>
 struct array_of_typeinfo
 {
     static const std::array<TypeInfo_t, sizeof...(T)> value;
 };
 
+// tool to generate an array of ClassInfo_t
+
 template<typename... T>
 struct array_of_classinfo
 {
     static const std::array<ClassInfo_t, sizeof...(T)> value;
 };
+
+// tool to generate an array of FunctionMemberInfo_t
 
 template<typename... T>
 struct array_of_functionmemberinfo
