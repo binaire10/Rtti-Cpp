@@ -5,7 +5,7 @@
 #include "TypeInfoInstance.h"
 #include "vTypeLogger.h"
 
-template<typename T, typename = typename std::enable_if<std::is_fundamental<T>::value || std::is_pointer<T>::value>::type>
+template<typename T, typename = typename std::enable_if<(std::is_fundamental<T>::value || std::is_pointer<T>::value) && NameType<T>::isLogged>::type>
 TypeInfo_t make_type() noexcept
 {
 #if __cplusplus >= 201402L

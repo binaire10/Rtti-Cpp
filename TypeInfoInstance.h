@@ -28,7 +28,7 @@ public:
     std::pair<const TypeInfo_t *, const TypeInfo_t *> transtypesExt() const noexcept override;
 };
 
-template<typename T, typename = typename std::enable_if<std::is_fundamental<T>::value || std::is_pointer<T>::value>::type>
+template<typename T, typename = typename std::enable_if<(std::is_fundamental<T>::value || std::is_pointer<T>::value) && NameType<T>::isLogged>::type>
 TypeInfo_t make_type() noexcept;
 
 #define B_DECLARE_TYPE_HPP(T)  \

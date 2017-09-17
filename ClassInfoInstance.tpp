@@ -6,7 +6,7 @@
 #include "ClassInfo_t.h"
 #include "vTypeLogger.h"
 
-template<typename T, typename = typename std::enable_if<std::is_class<typename std::decay<T>::type>::value>::type>
+template<typename T, typename = typename std::enable_if<std::is_class<typename std::decay<T>::type>::value && NameType<T>::isLogged>::type>
 ClassInfo_t make_type() noexcept
 {
 #if __cplusplus >= 201402L

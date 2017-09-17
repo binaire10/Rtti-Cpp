@@ -39,7 +39,7 @@ public:
 
 B_SET_TYPE_NAME_GENERIC(ClassInfoInstance);
 
-template<typename T, typename = typename std::enable_if<std::is_class<typename std::decay<T>::type>::value>::type>
+template<typename T, typename = typename std::enable_if<std::is_class<typename std::decay<T>::type>::value && NameType<T>::isLogged>::type>
 ClassInfo_t make_type() noexcept;
 
 #define B_DECLARE_CLASS_HPP(T) \

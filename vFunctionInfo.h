@@ -7,11 +7,6 @@
 class TypeInfo_t;
 class ClassInfo_t;
 
-template<typename T, typename = typename std::enable_if<std::is_class<typename std::remove_reference<T>::type>::value>::type>
-ClassInfo_t make_type() noexcept;
-template<typename T, typename = typename std::enable_if<std::is_fundamental<T>::value || std::is_pointer<T>::value>::type>
-TypeInfo_t make_type() noexcept;
-
 class vFunctionInfo
 {
 public:

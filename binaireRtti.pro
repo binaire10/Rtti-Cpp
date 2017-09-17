@@ -18,8 +18,6 @@ HEADERS += \
     vAttributeMemberInfo.h \
     vClassInfo.h \
     trait_type.h \
-    ElementName.hpp \
-    NameType.hpp \
     vTypeLogger.h \
     TypeInfo.h \
     ClassInfo.h \
@@ -44,7 +42,9 @@ HEADERS += \
     FunctionMemberInfo_t.hpp \
     hash_TypeInfo_t.h \
     hash_TypeInfo_t.hpp \
-    FunctionMember.hpp
+    FunctionMember.h \
+    ElementName.h \
+    NameType.h
 
 SOURCES += \
     main.cpp \

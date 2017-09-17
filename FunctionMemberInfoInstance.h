@@ -7,7 +7,7 @@
 #include "vMemberInfo.h"
 #include "vFunctionInfo.h"
 #include "trait_type.h"
-#include "ElementName.hpp"
+#include "ElementName.h"
 #include "arrayOf.h"
 
 class TypeInfo_t;
@@ -15,8 +15,10 @@ class TypeInfo_t;
 template<typename FunctionMemberPtr_t, FunctionMemberPtr_t function>
 struct trait_FunctionMemberInfoInstance
 {
-    using functionName_t = typename ElementName<FunctionMemberPtr_t, function>::name_t;
-    using memberName_t = typename ElementName<FunctionMemberPtr_t, function>::name_t;
+    using element_name_t = ElementName<FunctionMemberPtr_t, function>;
+
+    using functionName_t = typename element_name_t::name_t;
+    using memberName_t = typename element_name_t::name_t;
 
     using this_object_t = typename meta::trait_Member<FunctionMemberPtr_t>::this_object;
     using result_t = typename meta::trait_function<FunctionMemberPtr_t>::result_type;

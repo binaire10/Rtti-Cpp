@@ -3,8 +3,8 @@
 #include <memory>
 #include "vTypeInfo.h"
 #include "vClassInfo.h"
-#include "NameType.hpp"
-#include "ElementName.hpp"
+#include "NameType.h"
+#include "ElementName.h"
 #include "TypeInfo.h"
 #include "TypeInfoInstance.hpp"
 #include "ClassInfoInstance.hpp"
@@ -13,7 +13,7 @@
 #include <algorithm>
 #include "FunctionMemberInfoInstance.hpp"
 #include <iomanip>
-#include "FunctionMember.hpp"
+#include "FunctionMember.h"
 #include "FunctionMemberInfo_t.hpp"
 
 using namespace std;
@@ -38,6 +38,8 @@ struct A : std::string
 
 B_SET_TYPE_NAME(A);
 B_SET_TYPE_NAME(int);
+B_SET_TYPE_NAME(unsigned);
+B_SET_TYPE_NAME(double);
 B_SET_TYPE_NAME(void);
 B_SET_TYPE_NAME(char);
 B_SET_TYPE_NAME(bool);
@@ -96,6 +98,7 @@ int main()
 {
 //    cout << toString<ClassInfo<A>::transtype_t::argumentsSet_type, ClassInfo<A>::transtype_t::arguments_type>() << '\n';
     std::vector<FunctionMemberInfo_t> tr;
+    // make_type<std::size_t>();
     make_type<A>().getFunctionMemberInfo(tr);
     FunctionMemberInfoInstance<decltype(&A::test), &A::test> a;
     for(const auto &i : tr)

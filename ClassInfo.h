@@ -14,6 +14,6 @@ struct ClassInfo : TypeInfo<T>
     using functionMeber_t = FunctionMember<T>;
 };
 
-#include "FunctionMember.hpp"
+#include "FunctionMember.h"
 
 #endif // CLASSINFO_H

@@ -2,8 +2,8 @@
 #define TYPEINFO_H
 #pragma once
 
-#include "NameType.hpp"
-#include "ElementName.hpp"
+#include "NameType.h"
+#include "ElementName.h"
 #include "Transtype.h"
 
 template<typename type>
