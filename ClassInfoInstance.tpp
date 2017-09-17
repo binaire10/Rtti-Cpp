@@ -6,8 +6,8 @@
 #include "ClassInfo_t.h"
 #include "vTypeLogger.h"
 
-template<typename T, typename = typename std::enable_if<std::is_class<typename std::decay<T>::type>::value && NameType<T>::isLogged>::type>
-ClassInfo_t make_type() noexcept
+template<typename T>
+typename _MakeType<T>::autoClass make_type() noexcept
 {
 #if __cplusplus >= 201402L
     static ClassInfo_t typeInfo(reinterpret_cast<const vClassInfo *>(v2::load_type(std::make_unique<ClassInfoInstance<T>>())));
@@ -15,6 +15,12 @@ ClassInfo_t make_type() noexcept
     static ClassInfo_t typeInfo(reinterpret_cast<const vClassInfo *>(v2::load_type(std::unique_ptr<ClassInfoInstance<T>>(new ClassInfoInstance<T>))));
 #endif
     return typeInfo;
+}
+
+template<typename T>
+typename _MakeType<T>::builtinMake make_type() noexcept
+{
+    return ClassInfoInstance<T>::make_type();
 }
 
 template<typename T>

@@ -27,13 +27,7 @@ class ClassInfoInstance;
 template<typename T, typename ClassCXX = typename meta::get_baseType<T>::type>
 struct trait_ClassInfoInstance : trait_TypeInfoInstance<ClassCXX>
 {
-    template<typename Ts, typename = decltype(ClassInfoInstance<Ts>::make_type())>
-    static std::true_type hasMakeType(Ts *);
-    template<typename Ts>
-    static std::false_type hasMakeType(...);
-    static constexpr bool declareMakeTyp = decltype(hasMakeType<T>(nullptr))();
-
-    // static_assert(std::is_class<ClassCXX>::value, "T is not a class");
+    static_assert(std::is_class<ClassCXX>::value, "T is not a class");
     using class_t = ClassCXX;
     using name_t = typename ClassInfo<T>::name_t;
     using transtype_t = typename ClassInfo<ClassCXX>::transtype_t;
@@ -61,8 +55,37 @@ public:
 
 B_SET_TYPE_NAME_GENERIC(ClassInfoInstance);
 
-template<typename T, typename = typename std::enable_if<std::is_class<typename std::decay<T>::type>::value && NameType<T>::isLogged>::type>
-ClassInfo_t make_type() noexcept;
+template<typename T>
+struct _CheckName
+{
+    template<typename Ts, typename = decltype(ClassInfoInstance<Ts>::make_type())>
+    static std::true_type hasMakeType(Ts *);
+    template<typename Ts>
+    static std::false_type hasMakeType(...);
+    static constexpr bool declareMakeType = decltype(hasMakeType<T>(nullptr))();
+};
+
+template<typename T, bool = NameType<T>::isLogged, bool = std::is_class<typename std::decay<T>::type>::value, bool = _CheckName<T>::declareMakeType>
+struct _MakeType
+{};
+
+template<typename T, bool k>
+struct _MakeType<T, true, true, k>
+{
+    using autoClass = ClassInfo_t;
+};
+
+template<typename T>
+struct _MakeType<T, true, true, true>
+{
+    using builtinMake = ClassInfo_t;
+};
+
+template<typename T>
+typename _MakeType<T>::autoClass make_type() noexcept;
+
+template<typename T>
+typename _MakeType<T>::builinMake make_type() noexcept;
 
 #define B_DECLARE_CLASS_HPP(T) \
     template<> \
