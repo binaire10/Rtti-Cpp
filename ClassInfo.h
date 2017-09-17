@@ -12,7 +12,7 @@ template<typename T>
 struct ClassInfo : TypeInfo<T>
 {
     using parent_t = Parent<T>;
-    using functionMeber_t = FunctionMember<T>;
+    using functionMember_t = FunctionMember<T>;
 };
 
 #endif // CLASSINFO_H

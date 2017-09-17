@@ -27,13 +27,13 @@ class ClassInfoInstance;
 template<typename T, typename ClassCXX = typename meta::get_baseType<T>::type>
 struct trait_ClassInfoInstance : trait_TypeInfoInstance<ClassCXX>
 {
-    static_assert(std::is_class<ClassCXX>::value, "T is not a class");
+    // static_assert(std::is_class<ClassCXX>::value, "T is not a class"); // this assert is disable to use SFINAE
     using class_t = ClassCXX;
     using name_t = typename ClassInfo<T>::name_t;
     using transtype_t = typename ClassInfo<ClassCXX>::transtype_t;
-    using parent_t = typename ClassInfo<ClassCXX>::parent_t;
     using transtypeExt_t = typename ClassInfo<ClassCXX>::transtypeExt_t;
-    using functionMember_t = typename ClassInfo<ClassCXX>::functionMeber_t;
+    using parent_t = typename ClassInfo<ClassCXX>::parent_t;
+    using functionMember_t = typename ClassInfo<ClassCXX>::functionMember_t;
     static inline std::string name() noexcept;
     static inline std::pair<const FunctionMemberInfo_t *, const FunctionMemberInfo_t *> members() noexcept;
     static inline std::pair<const ClassInfo_t *, const ClassInfo_t *> parents() noexcept;
@@ -43,7 +43,14 @@ template<typename T>
 class ClassInfoInstance : public vClassInfo
 {
 public:
-    using trait_t = trait_ClassInfoInstance<T>;
+    using type_t = T;
+    using trait_t = trait_ClassInfoInstance<type_t>;
+    using class_t = typename trait_t::class_t;
+    using name_t = typename trait_t::name_t;
+    using transtype_t = typename trait_t::transtype_t;
+    using transtypeExt_t = typename trait_t::transtypeExt_t;
+    using parent_t = typename trait_t::parent_t;
+    using functionMember_t = typename trait_t::functionMember_t;
     constexpr ClassInfoInstance() noexcept;
     std::string name() const noexcept override;
     std::pair<const TypeInfo_t *, const TypeInfo_t *> transtypes() const noexcept override;
@@ -66,7 +73,14 @@ typename _MakeType<T, ClassInfoInstance>::builtinMakeClass make_type() noexcept;
     class ClassInfoInstance<T> : public vClassInfo \
     { \
     public: \
-        using trait_t = trait_ClassInfoInstance<T>; \
+        using type_t = T; \
+        using trait_t = trait_ClassInfoInstance<type_t>; \
+        using class_t = typename trait_t::class_t; \
+        using name_t = typename trait_t::name_t; \
+        using transtype_t = typename trait_t::transtype_t; \
+        using transtypeExt_t = typename trait_t::transtypeExt_t; \
+        using parent_t = typename trait_t::parent_t; \
+        using functionMember_t = typename trait_t::functionMember_t; \
         constexpr ClassInfoInstance() noexcept \
         {} \
         std::string name() const noexcept override; \

@@ -22,6 +22,10 @@ class TypeInfoInstance : public vTypeInfo
 {
 public:
     using type_t = T;
+    using trait_t = trait_TypeInfoInstance<type_t>;
+    using name_t = typename trait_t::name_t;
+    using transtype_t = typename trait_t::transtype_t;
+    using transtypeExt_t = typename trait_t::transtypeExt_t;
     constexpr TypeInfoInstance() noexcept;
     std::string name() const noexcept override;
     std::pair<const TypeInfo_t *, const TypeInfo_t *> transtypes() const noexcept override;
@@ -78,6 +82,11 @@ typename _MakeType<T, TypeInfoInstance>::builtinMakeType make_type() noexcept;
     class TypeInfoInstance<T> : public vTypeInfo \
     { \
     public: \
+        using type_t = T; \
+        using trait_t = trait_TypeInfoInstance<type_t>; \
+        using name_t = typename trait_t::name_t; \
+        using transtype_t = typename trait_t::transtype_t; \
+        using transtypeExt_t = typename trait_t::transtypeExt_t; \
         constexpr TypeInfoInstance() noexcept \
         {} \
         std::string name() const noexcept override; \
@@ -92,6 +101,11 @@ typename _MakeType<T, TypeInfoInstance>::builtinMakeType make_type() noexcept;
     class E TypeInfoInstance<T> : public vTypeInfo \
     { \
     public: \
+        using type_t = T; \
+        using trait_t = trait_TypeInfoInstance<type_t>; \
+        using name_t = typename trait_t::name_t; \
+        using transtype_t = typename trait_t::transtype_t; \
+        using transtypeExt_t = typename trait_t::transtypeExt_t; \
         constexpr TypeInfoInstance() noexcept \
         {} \
         std::string name() const noexcept override; \
@@ -110,22 +124,22 @@ typename _MakeType<T, TypeInfoInstance>::builtinMakeType make_type() noexcept;
   \
     std::string TypeInfoInstance<T>::name() const noexcept \
     { \
-        return trait_TypeInfoInstance<T>::name(); \
+        return trait_t::name(); \
     } \
     \
     std::pair<const TypeInfo_t *, const TypeInfo_t *> TypeInfoInstance<T>::transtypes() const noexcept \
     { \
-        return trait_TypeInfoInstance<T>::transtypes();\
+        return trait_t::transtypes();\
     } \
     \
     std::pair<const vFunctionInfo *, const vFunctionInfo *> TypeInfoInstance<T>::operators() const noexcept \
     { \
-        return trait_TypeInfoInstance<T>::operators();\
+        return trait_t::operators();\
     } \
     \
     std::pair<const TypeInfo_t *, const TypeInfo_t *> TypeInfoInstance<T>::transtypesExt() const noexcept \
     { \
-        return trait_TypeInfoInstance<T>::transtypesExt(); \
+        return trait_t::transtypesExt(); \
     }
 
 
