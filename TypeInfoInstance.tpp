@@ -5,8 +5,8 @@
 #include "TypeInfoInstance.h"
 #include "vTypeLogger.h"
 
-template<typename T, typename = typename std::enable_if<(std::is_fundamental<T>::value || std::is_pointer<T>::value) && NameType<T>::isLogged>::type>
-TypeInfo_t make_type() noexcept
+template<typename T>
+typename _MakeType<T, TypeInfoInstance>::autoType make_type() noexcept
 {
 #if __cplusplus >= 201402L
     static TypeInfo_t typeInfo(v2::load_type(std::make_unique<TypeInfoInstance<T>>()));
@@ -14,6 +14,12 @@ TypeInfo_t make_type() noexcept
     static TypeInfo_t typeInfo(v2::load_type(std::unique_ptr<TypeInfoInstance<T>>(new TypeInfoInstance<T>())));
 #endif
     return typeInfo;
+}
+
+template<typename T>
+typename _MakeType<T, TypeInfoInstance>::builtinMakeType make_type() noexcept
+{
+    return TypeInfoInstance<T>::make_type();
 }
 
 template<typename T>

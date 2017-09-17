@@ -7,18 +7,18 @@
 #include "vTypeLogger.h"
 
 template<typename T>
-typename _MakeType<T>::autoClass make_type() noexcept
+typename _MakeType<T, ClassInfoInstance>::autoClass make_type() noexcept
 {
 #if __cplusplus >= 201402L
-    static ClassInfo_t typeInfo(reinterpret_cast<const vClassInfo *>(v2::load_type(std::make_unique<ClassInfoInstance<T>>())));
+    static ClassInfo_t typeInfo(v2::load_class(std::make_unique<ClassInfoInstance<T>>()));
 #else
-    static ClassInfo_t typeInfo(reinterpret_cast<const vClassInfo *>(v2::load_type(std::unique_ptr<ClassInfoInstance<T>>(new ClassInfoInstance<T>))));
+    static ClassInfo_t typeInfo(v2::load_class(std::unique_ptr<ClassInfoInstance<T>>(new ClassInfoInstance<T>)));
 #endif
     return typeInfo;
 }
 
 template<typename T>
-typename _MakeType<T>::builtinMake make_type() noexcept
+typename _MakeType<T, ClassInfoInstance>::builtinMakeClass make_type() noexcept
 {
     return ClassInfoInstance<T>::make_type();
 }

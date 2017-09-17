@@ -56,36 +56,10 @@ public:
 B_SET_TYPE_NAME_GENERIC(ClassInfoInstance);
 
 template<typename T>
-struct _CheckName
-{
-    template<typename Ts, typename = decltype(ClassInfoInstance<Ts>::make_type())>
-    static std::true_type hasMakeType(Ts *);
-    template<typename Ts>
-    static std::false_type hasMakeType(...);
-    static constexpr bool declareMakeType = decltype(hasMakeType<T>(nullptr))();
-};
-
-template<typename T, bool = NameType<T>::isLogged, bool = std::is_class<typename std::decay<T>::type>::value, bool = _CheckName<T>::declareMakeType>
-struct _MakeType
-{};
-
-template<typename T, bool k>
-struct _MakeType<T, true, true, k>
-{
-    using autoClass = ClassInfo_t;
-};
+typename _MakeType<T, ClassInfoInstance>::autoClass make_type() noexcept;
 
 template<typename T>
-struct _MakeType<T, true, true, true>
-{
-    using builtinMake = ClassInfo_t;
-};
-
-template<typename T>
-typename _MakeType<T>::autoClass make_type() noexcept;
-
-template<typename T>
-typename _MakeType<T>::builinMake make_type() noexcept;
+typename _MakeType<T, ClassInfoInstance>::builtinMakeClass make_type() noexcept;
 
 #define B_DECLARE_CLASS_HPP(T) \
     template<> \
@@ -109,7 +83,7 @@ typename _MakeType<T>::builinMake make_type() noexcept;
 #define B_DECLARE_CLASS_CPP(T) \
     ClassInfo_t ClassInfoInstance<T>::make_type() noexcept \
     { \
-        static ClassInfo_t typeInfo(reinterpret_cast<const vClassInfo *>(v2::load_type(std::make_unique<ClassInfoInstance<T>>()))); \
+        static ClassInfo_t typeInfo(v2::load_class(std::make_unique<ClassInfoInstance<T>>())); \
         return typeInfo; \
     } \
   \
