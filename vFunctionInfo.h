@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file vFunctionInfo.h
+ * \brief Declaration of vFunctionInfo prototype
+ * \date 04/09/2017
+ */
 #ifndef VFUNCTIONINFO_H
 #define VFUNCTIONINFO_H
 #pragma once

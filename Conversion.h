@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file Conversion.h
+ * \brief Declaration of tool Conversion helper
+ * \date 04/09/2017
+ */
 #ifndef TRANSTYPE_H
 #define TRANSTYPE_H
 #pragma once

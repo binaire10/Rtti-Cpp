@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file TypeInfo.h
+ * \brief Declaration of TypeInfo prototype
+ * \date 04/09/2017
+ */
 #ifndef TYPEINFO_H
 #define TYPEINFO_H
 #pragma once

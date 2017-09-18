@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file vTypeLogger.h
+ * \brief Declaration of any type loader prototype
+ * \date 04/09/2017
+ */
 #ifndef VTYPELOGGER_H
 #define VTYPELOGGER_H
 #pragma once

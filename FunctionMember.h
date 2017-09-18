@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file FunctionMember.h
+ * \brief Declaration of any FunctionMember helper
+ * \date 04/09/2017
+ */
 #ifndef FUNCTIONMEMBER_HPP
 #define FUNCTIONMEMBER_HPP
 

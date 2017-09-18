@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file hash_TypeInfo_t.h
+ * \brief Declaration of hash<TypeInfo_t> prototype
+ * \date 04/09/2017
+ */
 #ifndef HASH_TYPEINFO_T_H
 #define HASH_TYPEINFO_T_H
 

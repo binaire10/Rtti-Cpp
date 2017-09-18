@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file hash_pair.h
+ * \brief Declaration of hash<std::pair> prototype
+ * \date 04/09/2017
+ */
 #ifndef HASH_PAIR_H
 #define HASH_PAIR_H
 

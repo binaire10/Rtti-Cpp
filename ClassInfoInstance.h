@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file ClassInfoInstance.h
+ * \brief Declaration of ClassInfoInstance class
+ * \date 04/09/2017
+ */
 #ifndef CLASSINFOINSTANCE_H
 #define CLASSINFOINSTANCE_H
 #pragma once

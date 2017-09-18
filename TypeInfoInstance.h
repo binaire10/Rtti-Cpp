@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file TypeInfoInstance.h
+ * \brief Declaration of vAttributeMemberInfo prototype
+ * \date 04/09/2017
+ */
 #ifndef TYPEINFOINSTANCE_H
 #define TYPEINFOINSTANCE_H
 

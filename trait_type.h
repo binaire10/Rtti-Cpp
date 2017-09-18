@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file trait_type.h
+ * \brief Declaration of any trait tool
+ * \date 04/09/2017
+ */
 #ifndef TRAIT_TYPE_H
 #define TRAIT_TYPE_H
 #pragma once

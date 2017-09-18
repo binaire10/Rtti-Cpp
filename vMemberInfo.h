@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file vMemberInfo.h
+ * \brief Declaration of vMemberInfo prototype
+ * \date 04/09/2017
+ */
 #ifndef VMEMBERINFO_H
 #define VMEMBERINFO_H
 

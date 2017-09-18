@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file ClassInfo.h
+ * \brief Declaration of ClassInfo class
+ * \date 04/09/2017
+ */
 #ifndef CLASSINFO_H
 #define CLASSINFO_H
 #pragma once

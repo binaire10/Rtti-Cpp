@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file vClassInfo.h
+ * \brief Declaration of vClassInfo prototype
+ * \date 04/09/2017
+ */
 #ifndef VCLASSINFO_H
 #define VCLASSINFO_H
 #pragma once

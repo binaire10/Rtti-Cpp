@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file arrayOf.h
+ * \brief Declaration of arrayOf toolbox
+ * \date 04/09/2017
+ */
 #ifndef ARRAYOF_H
 #define ARRAYOF_H
 #pragma once

@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file Parent.h
+ * \brief Declaration of Parent prototype
+ * \date 04/09/2017
+ */
 #ifndef PARENT_H
 #define PARENT_H
 #pragma once

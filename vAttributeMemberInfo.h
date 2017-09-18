@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file vAttributeMemberInfo.h
+ * \brief Declaration of vAttributeMemberInfo prototype
+ * \date 04/09/2017
+ */
 #ifndef VATTRIBUTEMEMBER_H
 #define VATTRIBUTEMEMBER_H
 #pragma once

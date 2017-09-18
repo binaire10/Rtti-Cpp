@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file hash_ClassInfo_t.h
+ * \brief Declaration of hash<ClassInfo_t> prototype
+ * \date 04/09/2017
+ */
 #ifndef HASH_CLASSINFO_T_H
 #define HASH_CLASSINFO_T_H
 

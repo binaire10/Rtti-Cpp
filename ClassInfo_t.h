@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file ClassInfo_t.h
+ * \brief Declaration of ClassInfo_t class
+ * \date 04/09/2017
+ */
 #ifndef CLASSINFO_T_H
 #define CLASSINFO_T_H
 

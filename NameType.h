@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file NameType.h
+ * \brief Declaration of NameType helper
+ * \date 04/09/2017
+ */
 #ifndef NAMETYPE_H
 #define NAMETYPE_H
 #pragma once

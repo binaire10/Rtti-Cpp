@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file vTypeInfo.h
+ * \brief Declaration of vTypeInfo prototype
+ * \date 04/09/2017
+ */
 #ifndef VTYPEINFO_H
 #define VTYPEINFO_H
 #pragma once

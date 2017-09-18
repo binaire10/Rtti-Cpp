@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file FunctionMemberInfoInstance.h
+ * \brief Declaration of FunctionMemberInfoInstance prototype and trait class
+ * \date 04/09/2017
+ */
 #ifndef VFUNCTIONMEMBER_H
 #define VFUNCTIONMEMBER_H
 #pragma once

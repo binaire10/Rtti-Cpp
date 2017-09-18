@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file ElementName.h
+ * \brief Declaration of tool ElementName helper
+ * \date 04/09/2017
+ */
 #ifndef ELEMENTNAME_H
 #define ELEMENTNAME_H
 #pragma once

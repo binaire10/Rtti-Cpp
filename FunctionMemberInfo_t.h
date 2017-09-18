@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file FunctionMemberInfoInstance.h
+ * \brief Declaration of FunctionMemberInfo_t prototype
+ * \date 04/09/2017
+ */
 #ifndef FUNCTIONMEMBERINFO_T_H
 #define FUNCTIONMEMBERINFO_T_H
 #pragma once
