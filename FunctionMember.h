@@ -1,6 +1,14 @@
 #ifndef FUNCTIONMEMBER_HPP
 #define FUNCTIONMEMBER_HPP
 
+/*!
+ * \class FunctionMember_check
+ * \brief check if the members is a part of D class
+ *
+ * \struct FunctionMember
+ * \brief generate an array of Members
+ */
+
 #include "arrayOf.h"
 #include "FunctionMemberInfoInstance.h"
 

@@ -1,6 +1,11 @@
 #ifndef CLASSINFO_T_H
 #define CLASSINFO_T_H
 
+/*!
+ * \class ClassInfo_t
+ * \brief ClassInfo_t is an instanciable class who allow to do dynamic introspection.
+ */
+
 #include <string>
 #include "TypeInfo_t.h"
 

@@ -2,6 +2,11 @@
 #define ELEMENTNAME_H
 #pragma once
 
+/*!
+ * \class ElementName
+ * \brief this class tell the name of an declared element.
+ */
+
 #include <meta_MetaStringManipulator.hpp>
 #include "NameType.h"
 

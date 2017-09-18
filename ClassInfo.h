@@ -6,6 +6,11 @@
 #include "Parent.h"
 #include "FunctionMember.h"
 
+/*!
+ * \struct ClassInfo
+ * \brief Proxy to outside instrospective tool
+ */
+
 // it's a proxy class to outside information
 
 template<typename T>
