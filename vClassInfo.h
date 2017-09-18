@@ -2,6 +2,11 @@
 #define VCLASSINFO_H
 #pragma once
 
+/*!
+ * \class vClassInfo
+ * \brief Interface to any Class info Object
+ */
+
 #include "vTypeInfo.h"
 
 class ClassInfo_t;

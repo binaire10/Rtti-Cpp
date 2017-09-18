@@ -9,8 +9,8 @@ template<typename T>
 struct trait_TypeInfoInstance
 {
     using name_t = typename TypeInfo<T>::name_t;
-    using transtype_t = typename TypeInfo<T>::transtype_t;
-    using transtypeExt_t = typename TypeInfo<T>::transtypeExt_t;
+    using transtype_t = typename TypeInfo<T>::conversion_t;
+    using transtypeExt_t = typename TypeInfo<T>::conversionExt_t;
     static inline std::string name() noexcept;
     static inline std::pair<const TypeInfo_t *, const TypeInfo_t *> transtypes() noexcept;
     static inline std::pair<const vFunctionInfo *, const vFunctionInfo *> operators() noexcept;

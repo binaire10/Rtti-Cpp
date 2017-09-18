@@ -2,6 +2,11 @@
 #define VFUNCTIONINFO_H
 #pragma once
 
+/*!
+ * \class vFunctionInfo
+ * \brief Interface to any function object info
+ */
+
 #include <string>
 
 class TypeInfo_t;

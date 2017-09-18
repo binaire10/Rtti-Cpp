@@ -2,6 +2,10 @@
 #define VATTRIBUTEMEMBER_H
 #pragma once
 
+/*!
+ * Interface to any Interface Object
+ */
+
 #include "vMemberInfo.h"
 
 class vTypeInfo;

@@ -1,6 +1,11 @@
 #ifndef VMEMBERINFO_H
 #define VMEMBERINFO_H
 
+/*!
+ * \class vMemberInfo
+ * \brief class to any Object Member
+ */
+
 #include <string>
 
 class ClassInfo_t;

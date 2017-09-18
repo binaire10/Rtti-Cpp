@@ -2,6 +2,11 @@
 #define VTYPEINFO_H
 #pragma once
 
+/*!
+ * \class vTypeInfo
+ * \brief Interface of any type info cast
+ */
+
 #include <string>
 #include "vFunctionInfo.h"
 

@@ -30,8 +30,8 @@ struct trait_ClassInfoInstance : trait_TypeInfoInstance<ClassCXX>
     // static_assert(std::is_class<ClassCXX>::value, "T is not a class"); // this assert is disable to use SFINAE
     using class_t = ClassCXX;
     using name_t = typename ClassInfo<T>::name_t;
-    using transtype_t = typename ClassInfo<ClassCXX>::transtype_t;
-    using transtypeExt_t = typename ClassInfo<ClassCXX>::transtypeExt_t;
+    using transtype_t = typename ClassInfo<ClassCXX>::conversion_t;
+    using transtypeExt_t = typename ClassInfo<ClassCXX>::conversionExt_t;
     using parent_t = typename ClassInfo<ClassCXX>::parent_t;
     using functionMember_t = typename ClassInfo<ClassCXX>::functionMember_t;
     static inline std::string name() noexcept;
