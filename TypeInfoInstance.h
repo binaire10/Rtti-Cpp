@@ -15,8 +15,8 @@ template<typename T>
 struct trait_TypeInfoInstance
 {
     using name_t = typename TypeInfo<T>::name_t;
-    using transtype_t = typename TypeInfo<T>::conversion_t;
-    using transtypeExt_t = typename TypeInfo<T>::conversionExt_t;
+    using conversion_t = typename TypeInfo<T>::conversion_t;
+    using conversionExt_t = typename TypeInfo<T>::conversionExt_t;
     static inline std::string name() noexcept;
     static inline std::pair<const TypeInfo_t *, const TypeInfo_t *> transtypes() noexcept;
     static inline std::pair<const vFunctionInfo *, const vFunctionInfo *> operators() noexcept;
@@ -30,8 +30,8 @@ public:
     using type_t = T;
     using trait_t = trait_TypeInfoInstance<type_t>;
     using name_t = typename trait_t::name_t;
-    using transtype_t = typename trait_t::transtype_t;
-    using transtypeExt_t = typename trait_t::transtypeExt_t;
+    using conversion_t = typename trait_t::conversion_t;
+    using conversionExt_t = typename trait_t::conversionExt_t;
     constexpr TypeInfoInstance() noexcept;
     std::string name() const noexcept override;
     std::pair<const TypeInfo_t *, const TypeInfo_t *> transtypes() const noexcept override;
@@ -91,8 +91,8 @@ typename _MakeType<T, TypeInfoInstance>::builtinMakeType make_type() noexcept;
         using type_t = T; \
         using trait_t = trait_TypeInfoInstance<type_t>; \
         using name_t = typename trait_t::name_t; \
-        using transtype_t = typename trait_t::transtype_t; \
-        using transtypeExt_t = typename trait_t::transtypeExt_t; \
+        using conversion_t = typename trait_t::conversion_t; \
+        using conversionExt_t = typename trait_t::conversionExt_t; \
         constexpr TypeInfoInstance() noexcept \
         {} \
         std::string name() const noexcept override; \
@@ -110,8 +110,8 @@ typename _MakeType<T, TypeInfoInstance>::builtinMakeType make_type() noexcept;
         using type_t = T; \
         using trait_t = trait_TypeInfoInstance<type_t>; \
         using name_t = typename trait_t::name_t; \
-        using transtype_t = typename trait_t::transtype_t; \
-        using transtypeExt_t = typename trait_t::transtypeExt_t; \
+        using conversion_t = typename trait_t::conversion_t; \
+        using conversionExt_t = typename trait_t::conversionExt_t; \
         constexpr TypeInfoInstance() noexcept \
         {} \
         std::string name() const noexcept override; \

@@ -13,7 +13,7 @@ inline std::string trait_TypeInfoInstance<T>::name() noexcept
 template<typename T>
 inline std::pair<const TypeInfo_t *, const TypeInfo_t *> trait_TypeInfoInstance<T>::transtypes() noexcept
 {
-    return {&transtype_t::value.front(), &transtype_t::value[transtype_t::value.size()]};
+    return {&conversion_t::value.front(), &conversion_t::value[conversion_t::value.size()]};
 }
 
 template<typename T>
@@ -23,7 +23,7 @@ inline std::pair<const vFunctionInfo *, const vFunctionInfo *> trait_TypeInfoIns
 template<typename T>
 inline std::pair<const TypeInfo_t *, const TypeInfo_t *> trait_TypeInfoInstance<T>::transtypesExt() noexcept
 {
-    return {&transtypeExt_t::value.front(), &transtypeExt_t::value[transtypeExt_t::value.size()]};
+    return {&conversionExt_t::value.front(), &conversionExt_t::value[conversionExt_t::value.size()]};
 }
 
 #endif // TRAIT_TYPEINFOINSTANCE_INL
