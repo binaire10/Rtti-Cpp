@@ -1,7 +1,7 @@
 QMAKE_CXXFLAGS += -pedantic -Wall -Wextra -Wold-style-cast -Woverloaded-virtual -Wfloat-equal -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wconversion -Wshadow -Weffc++
 QMAKE_CXXFLAGS += -Wredundant-decls -Wdouble-promotion -Winit-self -Wswitch-default -Wswitch-enum -Wundef -Wlogical-op -Winline
 
-#CONFIG += c++14
+CONFIG += c++11
 #QMAKE_CXXFLAGS_GNUCXX14 = -std=c++1z
 
 DEFINES += undefined=0
