@@ -89,14 +89,14 @@ using AddBack = typename AddBack_meta<Type, Storage>::type;
 template<typename Storage>
 struct StorageType_info
 {
-    static constexpr unsigned long long size = 0;
+    static constexpr std::size_t size = 0;
     using type = Storage;
 };
 
 template<template<typename...> class Storage, typename... a1>
 struct StorageType_info<Storage<a1...> >
 {
-    static constexpr unsigned long long size = sizeof...(a1);
+    static constexpr std::size_t size = sizeof...(a1);
     template<typename... a>
     using type = Storage<a...>;
 };

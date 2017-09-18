@@ -12,8 +12,8 @@ namespace meta
     template<template<typename type_t, type_t... str> class Content_t, typename Type_t, Type_t... val>
     struct get_content_info<Content_t<Type_t, val...> >
     {
-        static constexpr unsigned long long DataSize = sizeof...(val);
-        static constexpr unsigned long long Size = DataSize+1;
+        static constexpr std::size_t DataSize = sizeof...(val);
+        static constexpr std::size_t Size = DataSize+1;
         typedef Type_t content_type;
         typedef Type_t (data_type)[Size];
     };
@@ -48,23 +48,23 @@ namespace meta
     template<typename Content_t, typename get_content_info<Content_t>::content_type... value>
     using Add_front_value = Serialize<Content<typename get_content_info<Content_t>::content_type, value...>, Content_t>;
 
-    template<typename Content_t, unsigned n, typename res_t = Content<typename get_content_info<Content_t>::content_type>, unsigned len = n>
+    template<typename Content_t, std::size_t n, typename res_t = Content<typename get_content_info<Content_t>::content_type>, std::size_t len = n>
     struct keep_front_content_meta : keep_front_content_meta<Pop_front_content<Content_t>, n, Add_end_value<res_t, get_first_value_meta<Content_t>::value >, len-1>
     {};
 
-    template<typename Content_t, unsigned n, typename res_t>
+    template<typename Content_t, std::size_t n, typename res_t>
     struct keep_front_content_meta<Content_t, n, res_t, 0>
     {
         typedef res_t type;
     };
 
-    template<typename Content_t, unsigned n>
+    template<typename Content_t, std::size_t n>
     using Keep_front_content = typename keep_front_content_meta<Content_t,  n>::type;
 
-    template<typename Content_t, unsigned n>
+    template<typename Content_t, std::size_t n>
     using Extract_end = Keep_front_content<Content_t, get_content_info<Content_t>::DataSize?(get_content_info<Content_t>::DataSize-n):get_content_info<Content_t>::DataSize>;
 
-    template<typename Content, unsigned beg>
+    template<typename Content, std::size_t beg>
     struct extract_begin_meta : extract_begin_meta<Pop_front_content<Content>, beg-1>
     {};
 
@@ -74,13 +74,13 @@ namespace meta
         typedef Content type;
     };
 
-    template<typename Content_t, unsigned n>
+    template<typename Content_t, std::size_t n>
     using Extract_begin = typename extract_begin_meta<Content_t, n>::type;
 
-    template<typename Content_t, unsigned beg, unsigned end = 0>
+    template<typename Content_t, std::size_t beg, std::size_t end = 0>
     using Extract = Extract_begin<Extract_end<Content_t, end>, beg>;
 
-    template<typename Content_t, unsigned i>
+    template<typename Content_t, std::size_t i>
     struct get_i_value_meta
     {
         static constexpr typename get_content_info<Content_t>::content_type value = get_first_value_meta<Extract_begin<Content_t, i> >::value;
@@ -96,7 +96,7 @@ namespace meta
     template<typename Content_t>
     constexpr typename get_content_info<Content_t>::content_type get_first_value = get_first_value_meta<Content_t>::value;
 
-    template<typename Content_t, unsigned i>
+    template<typename Content_t, std::size_t i>
     constexpr typename get_content_info<Content_t>::content_type get_i_value = get_i_value_meta<Content_t, i>::value;
 
     template<typename Content_t>

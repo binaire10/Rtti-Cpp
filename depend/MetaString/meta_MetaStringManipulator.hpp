@@ -8,21 +8,21 @@
 
 namespace meta
 {
-    template<typename Type_t, unsigned s, Type_t value, typename Contents, long long int i = s-Contents::Size+1>
+    template<typename Type_t, std::size_t s, Type_t value, typename Contents, long long int i = s-Contents::Size+1>
     struct FillContent_meta
     {
         typedef typename std::conditional<(i>0), Serialize<Content<Type_t, value>, typename FillContent_meta<Type_t, s, value, Contents,(i>0?i-1:0)>::fill>, Content<Type_t> >::type fill;
         typedef Serialize<fill, Contents> type;
     };
 
-    template<typename Type_t, unsigned s, Type_t value, typename Contents>
+    template<typename Type_t, std::size_t s, Type_t value, typename Contents>
     struct FillContent_meta<Type_t, s, value, Contents, 1>
     {
         typedef Content<Type_t> fill;
         typedef Serialize<fill, Contents> type;
     };
 
-    template<typename Type_t, unsigned s, Type_t value, typename Contents>
+    template<typename Type_t, std::size_t s, Type_t value, typename Contents>
     using FillContent = typename FillContent_meta<Type_t, s, value, Contents>::type;
 
 #if __cplusplus >= 201402L
@@ -43,7 +43,7 @@ namespace meta
     template<size_t byte>
     struct BinaryReader
     {
-        template<unsigned long long number, template<char ch> class Encodeur, bool w = false>
+        template<std::size_t number, template<char ch> class Encodeur, bool w = false>
         struct Reader_meta
         {
             typedef Serialize<typename Reader_meta<(number>>byte), Encodeur, true>::type, Encodeur<static_cast<char>(number)> > type;
@@ -56,16 +56,16 @@ namespace meta
         };
     };
 
-    template<unsigned long long number, template<char ch> class Encodeur>
+    template<std::size_t number, template<char ch> class Encodeur>
     using BinReader = typename BinaryReader<1>::Reader_meta<number, Encodeur>::type;
 
-    template<unsigned long long number, template<char ch> class Encodeur>
+    template<std::size_t number, template<char ch> class Encodeur>
     using OctetReader = typename BinaryReader<8>::Reader_meta<number, Encodeur>::type;
 
-    template<unsigned long long number, template<char ch> class Encodeur>
+    template<std::size_t number, template<char ch> class Encodeur>
     using OctalReader = typename BinaryReader<3>::Reader_meta<number, Encodeur>::type;
 
-    template<unsigned long long number, template<char ch> class Encodeur, bool w = false>
+    template<std::size_t number, template<char ch> class Encodeur, bool w = false>
     struct DizaineReader_meta
     {
         typedef Serialize<typename DizaineReader_meta<(number/10), Encodeur, true>::type, Encodeur<static_cast<char>(number%10)> > type;
@@ -77,54 +77,54 @@ namespace meta
         typedef typename std::conditional<w, Content<char>, Encodeur<0ull> >::type type;
     };
 
-    template<unsigned long long number, template<char ch> class Encodeur>
+    template<std::size_t number, template<char ch> class Encodeur>
     using DizaineReader = typename DizaineReader_meta<number, Encodeur>::type;
 
-    template<unsigned long long number>
+    template<std::size_t number>
     using HexToStr = OctetReader<number, DigitToHex>;
 
-    template<unsigned long long number>
+    template<std::size_t number>
     using BinToStr = BinReader<number, DigitToBin>;
 
-    template<unsigned long long number>
+    template<std::size_t number>
     using HexsFormatStr_ll = Serialize<Content<char, '0', 'x'>, FillContent<char, 16, '0', HexToStr<number> > >;
 
-    template<unsigned long long number>
+    template<std::size_t number>
     using HexsFormatStr_l = Serialize<Content<char, '0', 'x'>, FillContent<char, 8, '0', HexToStr<number> > >;
 
-    template<unsigned long long number>
+    template<std::size_t number>
     using HexsFormatStr_s = Serialize<Content<char, '0', 'x'>, FillContent<char, 4, '0', HexToStr<number> > >;
 
-    template<unsigned long long number>
+    template<std::size_t number>
     using HexsFormatStr_c = Serialize<Content<char, '0', 'x'>, HexToStr<number> >;
 
 
-    template<unsigned long long number>
+    template<std::size_t number>
     using BinsFormatStr_ll = Serialize<Content<char, '0', 'b'>, FillContent<char, 64, '0', BinToStr<number> > >;
 
-    template<unsigned long long number>
+    template<std::size_t number>
     using BinsFormatStr_l = Serialize<Content<char, '0', 'b'>, FillContent<char, 32, '0',  BinToStr<number> > >;
 
-    template<unsigned long long number>
+    template<std::size_t number>
     using BinsFormatStr_s = Serialize<Content<char, '0', 'b'>, FillContent<char, 16, '0', BinToStr<number> > >;
 
-    template<unsigned long long number>
+    template<std::size_t number>
     using BinsFormatStr_c = Serialize<Content<char, '0', 'b'>, FillContent<char, 8, '0', BinToStr<number> > >;
 
 
-    template<unsigned long long number>
+    template<std::size_t number>
     using DigitsFormatStr = DizaineReader<number, DigitToStr>;
 
-    template<unsigned long long number>
+    template<std::size_t number>
     using BinsFormatStr = BinsFormatStr_ll<number>;
 
-    template<unsigned long long number>
+    template<std::size_t number>
     using HexsFormatStr = HexsFormatStr_ll<number>;
 
-    template<unsigned long long number>
+    template<std::size_t number>
     using OctsFormatStr = OctalReader<number, DigitToOct>;
 
-    template<unsigned long long number, template<unsigned long long> class PrintFormat = DigitsFormatStr>
+    template<std::size_t number, template<std::size_t> class PrintFormat = DigitsFormatStr>
     using NumberToStr = PrintFormat<number>;
 
     static_assert(std::is_same<Content<char, '0', 'x',

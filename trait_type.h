@@ -13,7 +13,7 @@ namespace meta
         using type = Type_t;
     };
 
-    template<typename Type_t, unsigned N>
+    template<typename Type_t, std::size_t N>
     struct get_baseType<Type_t [N]>
     {
         using type = typename get_baseType<Type_t>::type [N];
