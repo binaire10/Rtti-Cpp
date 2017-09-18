@@ -1,18 +1,19 @@
 # Rtti-Cpp
 ## Description
-C'est un projet qui à pour but d'essayer d'implementer un equivalent au RTTI (https://en.wikibooks.org/wiki/C%2B%2B_Programming/RTTI) en essayant d'être le plus proche de ce qui devrait être produit par le compilateur (chaine de caractére auto généré, tableau de rtti).
+Ce projet à pour but d'implementer un equivalent au RTTI (https://en.wikibooks.org/wiki/C%2B%2B_Programming/RTTI) en essayant d'être le plus proche possible de ce qui devrait être produit par le compilateur (chaine de caractère auto générée, tableau de rtti).
 
-Il 3 types d'information différent :
+Il y a 3 types d'information différent :
  - Les Types Fondamentales (TypeInfo_t)
  - Les Classes (ClassInfo_t)
 
-Les types fondamentales fournisse comme information :
- - les operateurs
- - les conversions
- - les conversions exterieurs
- - le nom
+Les types fondamentales fournissent comme information :
+ - Les operateurs
+ - Les conversions
+ - Les conversions exterieures
+ - Le nom
 
-Les Classes sont des améliorations des Types fondamentales et fournisse en plus :
+Les Classes sont des améliorations des Types fondamentales et fournissent en plus :
  - les fonctions membres
+
 ## Regle
-Le .h contient seulement le prototype / define / alias, l'implementation elle ce trouve dans le .hpp (qui peut inclure les .tpp ou .inl).
+Le .h contient seulement le prototype / define / alias, l'implementation se trouve dans le .hpp (qui peut inclure les .tpp ou .inl).
