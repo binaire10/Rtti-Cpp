@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file TypeInfo_t.cpp
+ * \brief Implementation of instanciable class type
+ * \date 04/09/2017
+ */
 #include "TypeInfo_t.h"
 #include "vTypeInfo.h"
 #include <algorithm>

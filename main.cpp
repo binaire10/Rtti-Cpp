@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file main.cpp
+ * \brief test code
+ * \date 04/09/2017
+ */
 #include <iostream>
 #include "trait_type.h"
 #include <memory>

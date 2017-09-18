@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file ClassInfo_t.cpp
+ * \brief Implementation of the instance of type
+ * \date 04/09/2017
+ */
 #include "ClassInfo_t.h"
 #include "vClassInfo.h"
 #include <iostream>

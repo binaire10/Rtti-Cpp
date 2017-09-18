@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file FunctionMemberInfo_t.cpp
+ * \brief Implementation of FunctionMemberInfo_t
+ * \date 04/09/2017
+ */
 #include "FunctionMemberInfo_t.h"
 #include "FunctionMemberInfoInstance.h"
 #include <map>

@@ -1,3 +1,9 @@
+/*!
+ * \author Alexandre Wery
+ * \file vTypeLogger.cpp
+ * \brief Implementation of Type Singleton
+ * \date 04/09/2017
+ */
 #include "vTypeLogger.h"
 
 #include <memory>
