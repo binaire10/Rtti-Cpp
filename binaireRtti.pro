@@ -37,7 +37,6 @@ HEADERS += \
     TypeInfo_t.h \
     ClassInfo_t.h \
     ClassInfoInstance.h \
-    Transtype.h \
     Parent.h \
     FunctionMemberInfo_t.h \
     ClassMember.hpp \
@@ -56,7 +55,8 @@ HEADERS += \
     hash_TypeInfo_t.hpp \
     FunctionMember.h \
     ElementName.h \
-    NameType.h
+    NameType.h \
+    Conversion.h
 
 HEADERS += $$HEADERS_PP
 
