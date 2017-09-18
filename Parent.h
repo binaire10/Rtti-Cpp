@@ -8,6 +8,15 @@
  *
  * \struct Parent
  * \brief struct to generate parents class array
+ *
+ * \def B_DECLARE_PARENTS_HPP
+ * \brief generate parents type instance.
+ *
+ * \def B_EXPORT_DECLARE_PARENTS_HPP
+ * \brief generate parents type instance into DLL.
+ *
+ * \def B_DECLARE_PARENTS_CPP
+ * \brief declare parents implementation
  */
 #include <meta_Utility.hpp>
 #include "arrayOf.h"

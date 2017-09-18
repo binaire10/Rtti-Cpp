@@ -2,6 +2,24 @@
 #define VTYPELOGGER_H
 #pragma once
 
+/*!
+ * \fn v2::load_type(std::unique_ptr<vTypeInfo> &)
+ * \brief Function to get an instance of vTypeInfo
+ * \return instance of class
+ *
+ * \fn v2::load_type(std::unique_ptr<vTypeInfo> &&)
+ * \brief Function to get an instance of vTypeInfo
+ * \return instance of class
+ *
+ * \fn v2::load_class(std::unique_ptr<vClassInfo> &)
+ * \brief Function to get an instance of vClassInfo
+ * \return instance of class
+ *
+ * \fn v2::load_class(std::unique_ptr<vClassInfo> &&)
+ * \brief Function to get an instance of vClassInfo
+ * \return instance of class
+ */
+
 #include <memory>
 #include "vTypeInfo.h"
 #include "vClassInfo.h"

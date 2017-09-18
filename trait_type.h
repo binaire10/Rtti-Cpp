@@ -2,6 +2,11 @@
 #define TRAIT_TYPE_H
 #pragma once
 
+/*!
+ * \struct meta::get_baseType
+ * tell the type without volatile or const symbole
+ */
+
 #include <tuple>
 #include <type_traits>
 
