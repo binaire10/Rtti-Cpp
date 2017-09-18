@@ -11,6 +11,30 @@
 #include "arrayOf.h"
 #include "TypeInfo_t.h"
 
+/*!
+ * \struct trait_FunctionMemberInfoInstance
+ * \brief trait of an FunctionMemberInfoInstance with all alias, and function
+ *
+ * \class vFunctionMemberInfoInstance
+ * \brief Interface to any instance of type FunctionMemberInfoInstance
+ *
+ * \class FunctionMemberInfoInstance
+ * \brief It's an instance of any function member. This type must be unique on the instance like a singleton.
+ *
+ * \def B_DECLARE_FUNCTION_MEMBER_HPP
+ * \brief Macro to declare any member. Must be place on the header file.
+ *
+ * \def B_DECLARE_FUNCTION_MEMBER_CPP
+ * \brief Macro to implement any member. Must be place on the source file.
+ *
+ * \def B_EXPORT_DECLARE_FUNCTION_MEMBER_HPP
+ * \brief Macro to declare any member. Must be place on the header file. Use only on DLL build.
+ *
+ * \def B_MAKE_FUNCTION_MEMBER_TYPE
+ * \brief small code generate the FunctionMemberInfoInstance
+ * \return FunctionMemberInfoInstance
+ */
+
 template<typename FunctionMemberPtr_t, FunctionMemberPtr_t function>
 struct trait_FunctionMemberInfoInstance
 {

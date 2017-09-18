@@ -2,6 +2,11 @@
 #define FUNCTIONMEMBERINFO_T_H
 #pragma once
 
+/*!
+ * \class FunctionMemberInfo_t
+ * \brief this class is an instance of FunctionMemberInfo to work on dynamic introspection
+ */
+
 #include <string>
 #include "TypeInfo_t.h"
 #include <vector>

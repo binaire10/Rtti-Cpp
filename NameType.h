@@ -2,6 +2,20 @@
 #define NAMETYPE_H
 #pragma once
 
+/*!
+ * \struct TemplateName
+ * \brief generate the string of template arguments
+ *
+ * \struct NameType
+ * \brief generate the string of name type
+ *
+ * \def B_SET_TYPE_NAME
+ * \brief set name of type to make a best name type.
+ *
+ * \def B_SET_TYPE_NAME_GENERIC
+ * \brief set name of generic name to make a best name type.
+ */
+
 #include <Content.hpp>
 #include <meta_ContentUtility.hpp>
 #include <meta_MetaStringManipulator.hpp>

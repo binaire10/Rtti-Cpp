@@ -2,6 +2,13 @@
 #define PARENT_H
 #pragma once
 
+/*!
+ * \class parent_check
+ * \brief class to check if declared parents are realy parent of D class.
+ *
+ * \struct Parent
+ * \brief struct to generate parents class array
+ */
 #include <meta_Utility.hpp>
 #include "arrayOf.h"
 
