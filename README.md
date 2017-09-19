@@ -2,7 +2,7 @@
 ## Description
 Ce projet à pour but d'implementer un equivalent au RTTI (https://en.wikibooks.org/wiki/C%2B%2B_Programming/RTTI) en essayant d'être le plus proche possible de ce qui devrait être produit par le compilateur (chaine de caractère auto générée, tableau de rtti).
 
-Il y a 3 types d'information différent :
+Il y a 2 types d'information différent :
  - Les Types Fondamentales (TypeInfo_t)
  - Les Classes (ClassInfo_t)
 
